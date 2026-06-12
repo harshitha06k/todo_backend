@@ -24,7 +24,6 @@ const listSchema = mongoose.Schema({
 const listModel = mongoose.model("List",listSchema)
 
 app.post("/users/register",async (req,res)=>{
-    console.log(req.body)
     const hashpassword = await bcrypt.hash(req.body.password,10)
      req.body.password = hashpassword
      const user = await userModel.create(req.body)
